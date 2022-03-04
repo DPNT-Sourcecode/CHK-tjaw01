@@ -103,8 +103,14 @@ def checkout(skus):
 def calculate_items_price(basket_items_count):
     item_costs = {}
     for item, amount in basket_items_count.items():
+        # DONT FORGET!!! need to handle free items
+        required_item_amount = items[item]["required_item_amount"]
+        offer_item = items[item]["offer_item"]
+        offer_price = items[item]["offer_price"]
         if items[item]["offers"] is not None:
-            return "TODO"
+            number_of_offers = int(amount) // int(required_item_amount)
+            remaining_items = int(amount) % int(required_item_amount)
+            total_item_price = ((number_of_offers * ))
         else:
             item_costs[item] = (int(items[item]["price"]) *
                                 int(amount))
@@ -131,3 +137,4 @@ def calculate_items_price(basket_items_count):
 
 
 print(checkout("CCDDD"))
+
