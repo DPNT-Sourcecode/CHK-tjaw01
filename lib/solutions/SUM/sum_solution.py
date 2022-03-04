@@ -7,8 +7,3 @@ def compute(x, y):
         return result
     else:
         pass
-
-
-print(compute(101, 10))
-
-
