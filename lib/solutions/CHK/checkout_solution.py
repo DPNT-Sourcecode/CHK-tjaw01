@@ -45,7 +45,7 @@ import json
 items = {
     "A": {
         "price": 50,
-        "offers": [
+        "value_offers": [
             {
                 "required_item_amount": 3,
                 "offer_item": "A",
@@ -56,29 +56,34 @@ items = {
                 "offer_item": "A",
                 "offer_price": 200
             }
-        ]
+        ],
+        "free_offers": None
     },
     "B": {
         "price": 30,
-        "offers": [
+        "value_offers": [
             {
                 "required_item_amount": 2,
                 "offer_item": "B",
                 "offer_price": 45
             }
-        ]
+        ],
+        "free_offers": None
     },
     "C": {
         "price": 20,
-        "offers": None
+        "value_offers": None,
+        "free_offers": None
     },
     "D": {
         "price": 15,
-        "offers": None
+        "value_offers": None,
+        "free_offers": None
     },
     "E": {
         "price": 40,
-        "offers": [
+        "value_offers": None,
+        "free_offers": [
             {
                 "required_item_amount": 2,
                 "offer_item": "B",
@@ -119,16 +124,15 @@ def handle_for_value_offers(item, amount):
     if offers:
         for offer in offers:
             offer_item = offer["offer_item"]
-
-                price = items[item]["price"]
-                required_item_amount = offer["required_item_amount"]
-                offer_price = offer["offer_price"]
-                number_of_offers = int(amount) // int(required_item_amount)
-                remained_items = int(amount) % int(required_item_amount)
-                total_item_price = ((number_of_offers * offer_price) +
-                                    (remained_items * price))
-                offer_prices.append(total_item_price)
-                total = min(offer_prices)
+            price = items[item]["price"]
+            required_item_amount = offer["required_item_amount"]
+            offer_price = offer["offer_price"]
+            number_of_offers = int(amount) // int(required_item_amount)
+            remained_items = int(amount) % int(required_item_amount)
+            total_item_price = ((number_of_offers * offer_price) +
+                                (remained_items * price))
+            offer_prices.append(total_item_price)
+            total = min(offer_prices)
     else:
         price = items[item]["price"]
         total = int(price) * int(amount)
@@ -151,6 +155,7 @@ def handle_for_free_offers(basket_items_count):
 
 
 print(checkout("CCABE"))
+
 
 
 
