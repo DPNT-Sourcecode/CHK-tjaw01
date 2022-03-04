@@ -1,3 +1,3 @@
-#!/usr/bin/env python3
-
 import unittest
+from checkout_solution import *
+
