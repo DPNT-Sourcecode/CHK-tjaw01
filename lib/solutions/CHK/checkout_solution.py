@@ -24,11 +24,16 @@
 def checkout(skus):
     # convert string input to list
     skus_list = list(skus)
-    return skus_list
+    skus_elem_count = {}
+    for elem in skus_list:
+        skus_elem_count[elem] = skus_list.count(elem)
+    # work out the number of each item in the skus skus_list
     # check items and amount for special offer for each elem
     # add total of SKUs
     # return SKUs total cost
+    return(skus_elem_count)
 
 
 print(checkout("AABCA"))
+
 
