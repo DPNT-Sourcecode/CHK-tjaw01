@@ -153,7 +153,8 @@ def handle_for_free_offers(basket_items_count):
     return basket_items_count
 
 
-print(checkout("AAABEE"))
+print(checkout("EE"))
+
 
 
 
