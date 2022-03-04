@@ -57,8 +57,13 @@ def calculate_item_price(item, amount):
     if offer_amount is not None:
         number_of_offers = int(amount) // int(offer_amount)
         remained_items = int(amount) % int(offer_amount)
-    total_item_price
+        total_item_price = ((number_of_offers * offer_price) +
+                            (remained_items * price))
+    else:
+        total_item_price = price * amount
+    return total_item_price
 
 
 # print(checkout("AABCA"))
-print(calculate_price("A", "8")) # should = 180
+print(calculate_item_price("A", "4"))
+
