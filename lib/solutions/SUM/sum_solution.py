@@ -9,5 +9,6 @@ def compute(x, y):
         pass
 
 
-print(compute(1, 10))
+print(compute(101, 10))
+
 
