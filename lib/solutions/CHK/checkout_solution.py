@@ -26,6 +26,7 @@ def checkout(skus):
     # return SKUs total cost
     return(skus_elem_count)
 
+
 def calculate_price(item, amount):
     item_price = {
         "A": {
@@ -50,10 +51,11 @@ def calculate_price(item, amount):
         },
     }
     item_price_json = json.dumps(item_price)
-    print(item_price_json)
+    return item_price_json[item]
 
 
-#print(checkout("AABCA"))
+# print(checkout("AABCA"))
 print(calculate_price("A", "4"))
+
 
 
