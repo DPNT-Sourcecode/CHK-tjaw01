@@ -96,8 +96,9 @@ def checkout(skus):
         if item not in items:
             return -1
         basket_items_count[item] = basket.count(item)
-    print(handle_for_free_offers(basket_items_count))
-    # print(calculate_items_price(basket_items_count))
+    basket_items_count = handle_for_free_offers(basket_items_count)
+    total_basket_cost = calculate_items_price(basket_items_count)
+    print(total_basket_cost)
     return 0
 
 
@@ -132,13 +133,14 @@ def handle_for_free_offers(basket_items_count):
     for item, amount in basket_items_count.items():
         offers = items[item]["offers"]
         if offers:
-            offer_price = offers["offer_price"]
-            offer_item = offers["offer_item"]
-            required_item_amount = offers["required_item_amount"]
-            if not offer_price and required_item_amount <= amount:
-                number_of_offers = int(amount) // int(required_item_amount)
-                basket_items_count[offer_item] = (basket_items_count[offer_item] -
-                                                  number_of_offers)
+            for offer in offers:
+                offer_price = offer["offer_price"]
+                offer_item = offer["offer_item"]
+                required_item_amount = offer["required_item_amount"]
+                if not offer_price and required_item_amount <= amount:
+                    number_of_offers = int(amount) // int(required_item_amount)
+                    basket_items_count[offer_item] = (basket_items_count[offer_item] -
+                                                      number_of_offers)
     return basket_items_count
 
 
@@ -162,9 +164,4 @@ def handle_for_free_offers(basket_items_count):
     # return int(total_item_price)
 
 
-print(checkout("CCABEE"))
-
-
-
-
-
+print(checkout("CCABE"))
