@@ -98,8 +98,9 @@ def checkout(skus):
         basket_items_count[item] = basket.count(item)
     basket_items_count = handle_for_free_offers(basket_items_count)
     total_basket_cost = calculate_items_price(basket_items_count)
-    print(total_basket_cost)
-    return 0
+    values = total_basket_cost.values()
+    total = sum(values)
+    return total
 
 
 def calculate_items_price(basket_items_count):
@@ -147,25 +148,6 @@ def handle_for_free_offers(basket_items_count):
     return basket_items_count
 
 
-        # calcute the price of each key value
-        # for free items compare to see if offer item = current item
-
-
-    # price = item_price_json[item]["price"]
-    # required_item = item_price_json[item]["offer_amount"]
-    # required_item_amount = item_price_json[item]["offer_price"]
-    # offer_item =
-    # offer_price =
-    #
-    # if offer_amount is not None:
-    #     number_of_offers = int(amount) // int(offer_amount)
-    #     remained_items = int(amount) % int(offer_amount)
-    #     total_item_price = ((number_of_offers * offer_price) +
-    #                         (remained_items * price))
-    # else:
-    #     total_item_price = int(price) * int(amount)
-    # return int(total_item_price)
-
-
 print(checkout("CCABE"))
+
 
