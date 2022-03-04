@@ -1,14 +1,6 @@
 #!/usr/bin/env python3
+import json
 
-# Our price table and offers:
-# +------+-------+----------------+
-# | Item | Price | Special offers |
-# +------+-------+----------------+
-# | A    | 50    | 3A for 130     |
-# | B    | 30    | 2B for 45      |
-# | C    | 20    |                |
-# | D    | 15    |                |
-# +------+-------+----------------+
 # Notes:
 #  - For any illegal input return -1
 #
@@ -22,16 +14,39 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    # convert string input to list
     skus_list = list(skus)
     skus_elem_count = {}
     for elem in skus_list:
         skus_elem_count[elem] = skus_list.count(elem)
-    # work out the number of each item in the skus skus_list
     # check items and amount for special offer for each elem
+    for item, amount in skus_elem_count.items():
+
     # add total of SKUs
     # return SKUs total cost
     return(skus_elem_count)
 
+# Our price table and offers:
+# +------+-------+----------------+
+# | Item | Price | Special offers |
+# +------+-------+----------------+
+# | A    | 50    | 3A for 130     |
+# | B    | 30    | 2B for 45      |
+# | C    | 20    |                |
+# | D    | 15    |                |
+# +------+-------+----------------+
+def calculate_price(item, amount):
+    item_price = {
+        "A" = ,
+        "B" = 30,
+        "C" = 20,
+        "D" = 15,
+    }
+
+    if item == "A":
+    # need to include a division of the amount to see how many items are offers or not.
+    if item == "B":
+
+
 
 print(checkout("AABCA"))
+
