@@ -97,12 +97,7 @@ def checkout(skus):
             return -1
         basket_items_count[item] = basket.count(item)
     print(calculate_items_price(basket_items_count))
-    #total_cost_list = []
     return 0
-    # each time
-    #for item, amount in basket_items_count.items():
-    #    total_cost_list.append(calculate_item_price(item, amount))
-    #return(int(sum(total_cost_list)))
 
 
 def calculate_items_price(basket_items_count):
@@ -136,6 +131,7 @@ def calculate_items_price(basket_items_count):
 
 
 print(checkout("CCDDD"))
+
 
 
 
