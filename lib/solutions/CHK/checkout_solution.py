@@ -14,39 +14,46 @@ import json
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
+    # Dont forget to check for invalid input: return -1
     skus_list = list(skus)
     skus_elem_count = {}
     for elem in skus_list:
         skus_elem_count[elem] = skus_list.count(elem)
     # check items and amount for special offer for each elem
-    for item, amount in skus_elem_count.items():
+#    for item, amount in skus_elem_count.items():
 
     # add total of SKUs
     # return SKUs total cost
     return(skus_elem_count)
 
-# Our price table and offers:
-# +------+-------+----------------+
-# | Item | Price | Special offers |
-# +------+-------+----------------+
-# | A    | 50    | 3A for 130     |
-# | B    | 30    | 2B for 45      |
-# | C    | 20    |                |
-# | D    | 15    |                |
-# +------+-------+----------------+
 def calculate_price(item, amount):
     item_price = {
-        "A" = ,
-        "B" = 30,
-        "C" = 20,
-        "D" = 15,
+        "A": {
+            "price": 50,
+            "offer_amount": 3,
+            "offer_price": 130
+        },
+        "B": {
+            "price": 30,
+            "offer_amount": 2,
+            "offer_price": 45
+        },
+        "C": {
+            "price": 20,
+            "offer_amount": None,
+            "offer_price": None
+        },
+        "D": {
+            "price": 15,
+            "offer_amount": None,
+            "offer_price": None
+        },
     }
-
-    if item == "A":
-    # need to include a division of the amount to see how many items are offers or not.
-    if item == "B":
+    item_price_json = json.dumps(item_price)
+    print(item_price_json)
 
 
+#print(checkout("AABCA"))
+print(calculate_price("A", "4"))
 
-print(checkout("AABCA"))
 
