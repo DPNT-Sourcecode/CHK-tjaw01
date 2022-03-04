@@ -50,12 +50,13 @@ def calculate_price(item, amount):
             "offer_price": None
         },
     }
-    item_price_json = json.dumps(item_price)
+    item_price_json = json.loads(json.dumps(item_price))
     return item_price_json[item]
 
 
 # print(checkout("AABCA"))
 print(calculate_price("A", "4"))
+
 
 
 
