@@ -82,7 +82,7 @@ items = {
             {
                 "required_item_amount": 2,
                 "offer_item": "B",
-                "offer_price": 0
+                "offer_price": None
             }
         ]
     }
@@ -110,7 +110,7 @@ def calculate_items_price(basket_items_count):
 def handle_for_value_offers(item, amount):
     offers = items[item]["offers"]
     offer_prices = []
-    if offers is not None:
+    if offers:
         for offer in offers:
             price = items[item]["price"]
             required_item_amount = offer["required_item_amount"]
@@ -128,7 +128,9 @@ def handle_for_value_offers(item, amount):
 
 
 def handle_for_free_offers(total_basket_cost, basket_items_count):
-    offers = items[item]["offers"]
+    for item, amount in basket_items_count.items():
+        offer_price = items[item]["offers"]["offer_price"]
+        if offer_price:
 
         # calcute the price of each key value
         # for free items compare to see if offer item = current item
@@ -151,6 +153,7 @@ def handle_for_free_offers(total_basket_cost, basket_items_count):
 
 
 print(checkout("CCDDDAAAAAAAAABC"))
+
 
 
 
