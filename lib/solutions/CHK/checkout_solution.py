@@ -27,7 +27,7 @@ def checkout(skus):
     return(skus_elem_count)
 
 
-def calculate_price(item, amount):
+def calculate_item_price(item, amount):
     item_price = {
         "A": {
             "price": 50,
@@ -55,16 +55,10 @@ def calculate_price(item, amount):
     offer_amount = item_price_json[item]["offer_amount"]
     offer_price = item_price_json[item]["offer_price"]
     if offer_amount is not None:
-        number_of_offers = int(amount) % int(offer_amount)
-        #remained_items = int(amount) / int(offer_amount)
-        print(remained_items)
+        number_of_offers = int(amount) // int(offer_amount)
+        remained_items = int(amount) % int(offer_amount)
+    total_item_price
 
 
 # print(checkout("AABCA"))
-print(calculate_price("A", "4")) # should = 180
-
-
-
-
-
-
+print(calculate_price("A", "8")) # should = 180
