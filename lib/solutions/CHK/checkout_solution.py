@@ -115,17 +115,20 @@ def calculate_items_price(basket_items_count):
 
 def apply_offers(basket_items_count, total_basket_costs):
     for item, amount in basket_items_count.items():
-        best_offer = {}
+        offer_prices = {}
         offers = items[item]["offers"]
         if offers is not None:
             for offer in offers:
+                price = items[item]["price"]
+                offer_id = offer["offer_id"]
                 required_item_amount = offer["required_item_amount"]
                 offer_price = offer["offer_price"]
                 number_of_offers = int(amount) // int(required_item_amount)
                 remained_items = int(amount) % int(required_item_amount)
                 total_item_price = ((number_of_offers * offer_price) +
                                     (remained_items * price))
-                best_offer[item]
+                offer_prices[offer_id] = total_item_price
+                print(offer_prices)
         # calcute the price of each key value
         # for free items compare to see if offer item = current item
 
@@ -147,4 +150,5 @@ def apply_offers(basket_items_count, total_basket_costs):
 
 
 print(checkout("CCDDDAABC"))
+
 
