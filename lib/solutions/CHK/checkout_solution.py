@@ -63,6 +63,3 @@ def calculate_item_price(item, amount):
         total_item_price = int(price) * int(amount)
     return int(total_item_price)
 
-
-print(checkout("AAA"))
-#print(calculate_item_price("D", "4"))
