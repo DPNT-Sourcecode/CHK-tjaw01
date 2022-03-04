@@ -154,9 +154,3 @@ def handle_for_free_offers(basket_items_count):
 
 
 print(checkout("EE"))
-
-
-
-
-
-
