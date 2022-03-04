@@ -120,12 +120,10 @@ def handle_offers(item, amount):
             total_item_price = ((number_of_offers * offer_price) +
                                 (remained_items * price))
             offer_prices.append(total_item_price)
-            print(offer_prices)
             total = min(offer_prices)
     else:
         price = items[item]["price"]
-        total = (int(price) *
-                 int(amount))
+        total = int(price) * int(amount)
     return total
 
 
@@ -150,4 +148,5 @@ def handle_offers(item, amount):
 
 
 print(checkout("CCDDDAAAAAAAAABC"))
+
 
