@@ -103,24 +103,32 @@ def checkout(skus):
 def calculate_items_price(basket_items_count):
     total_basket_cost = {}
     for item, amount in basket_items_count.items():
-        offers = items[item]["offers"]
-        offer_prices = []
-        if offers is not None:
-            for offer in offers:
-                price = items[item]["price"]
-                required_item_amount = offer["required_item_amount"]
-                offer_price = offer["offer_price"]
-                number_of_offers = int(amount) // int(required_item_amount)
-                remained_items = int(amount) % int(required_item_amount)
-                total_item_price = ((number_of_offers * offer_price) +
-                                    (remained_items * price))
-                offer_prices.append(total_item_price)
-            total_basket_cost[item] = min(offer_prices)
-        else:
-            price = items[item]["price"]
-            total_basket_cost[item] = (int(price) *
-                                       int(amount))
+        total_basket_cost[item] = handle_offers(item, amount)
     return total_basket_cost
+
+
+def handle_offers(item, amount):
+    offers = items[item]["offers"]
+    offer_prices = []
+    if offers is not None:
+        for offer in offers:
+            price = items[item]["price"]
+            required_item_amount = offer["required_item_amount"]
+            offer_price = offer["offer_price"]
+            number_of_offers = int(amount) // int(required_item_amount)
+            remained_items = int(amount) % int(required_item_amount)
+            total_item_price = ((number_of_offers * offer_price) +
+                                (remained_items * price))
+            offer_prices.append(total_item_price)
+            print(offer_prices)
+            total = min(offer_prices)
+    else:
+        price = items[item]["price"]
+        total = (int(price) *
+                 int(amount))
+    return total
+
+
         # calcute the price of each key value
         # for free items compare to see if offer item = current item
 
@@ -142,3 +150,4 @@ def calculate_items_price(basket_items_count):
 
 
 print(checkout("CCDDDAAAAAAAAABC"))
+
