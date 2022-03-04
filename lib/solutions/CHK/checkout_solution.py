@@ -95,16 +95,15 @@ items = {
 
 def checkout(skus):
     basket = list(skus)
-#    basket_items = {}
+    basket_items_count = {}
     for item in basket:
         if item not in items:
             return -1
-#        skus_elem_count[elem] = skus_list.count(elem)
-#    total_cost_list = []
-#    for item, amount in skus_elem_count.items():
-#        total_cost_list.append(calculate_item_price(item, amount))
-#    return(int(sum(total_cost_list)))
-    return 0
+        basket_items_count[item] = basket.count(item)
+    total_cost_list = []
+    for item, amount in basket_items_count.items():
+        total_cost_list.append(calculate_item_price(item, amount))
+    return(int(sum(total_cost_list)))
 
 
 def calculate_item_price(item, amount):
@@ -122,5 +121,6 @@ def calculate_item_price(item, amount):
     return int(total_item_price)
 
 
-print(checkout("F"))
+print(checkout("AAABC"))
+
 
