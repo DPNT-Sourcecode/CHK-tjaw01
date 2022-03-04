@@ -47,13 +47,11 @@ items = {
         "price": 50,
         "offers": [
             {
-                "required_item": "A",
                 "required_item_amount": 3,
                 "offer_item": "A",
                 "offer_price": 130
             },
             {
-                "required_item": "A",
                 "required_item_amount": 5,
                 "offer_item": "A",
                 "offer_price": 200
@@ -64,7 +62,6 @@ items = {
         "price": 30,
         "offers": [
             {
-                "required_item": "B",
                 "required_item_amount": 2,
                 "offer_item": "B",
                 "offer_price": 45
@@ -83,13 +80,12 @@ items = {
         "price": 40,
         "offers": [
             {
-                "required_item": "E",
                 "required_item_amount": 2,
                 "offer_item": "B",
                 "offer_price": 0
             }
         ]
-    },
+    }
 }
 
 
@@ -100,28 +96,47 @@ def checkout(skus):
         if item not in items:
             return -1
         basket_items_count[item] = basket.count(item)
-    total_cost_list = []
+    print(calculate_items_price(basket_items_count))
+    #total_cost_list = []
+    return 0
+    # each time
+    #for item, amount in basket_items_count.items():
+    #    total_cost_list.append(calculate_item_price(item, amount))
+    #return(int(sum(total_cost_list)))
+
+
+def calculate_items_price(basket_items_count):
+    item_costs = {}
     for item, amount in basket_items_count.items():
-        total_cost_list.append(calculate_item_price(item, amount))
-    return(int(sum(total_cost_list)))
+        if items[item]["offers"] is not None:
+            return "TODO"
+        else:
+            item_costs[item] = (int(items[item]["price"]) *
+                                int(amount))
+    return(item_costs)
+
+        # calcute the price of each key value
+        # for free items compare to see if offer item = current item
 
 
-def calculate_item_price(item, amount):
-    items = json.loads(json.dumps(item_price))
-    price = item_price_json[item]["price"]
-    offer_amount = item_price_json[item]["offer_amount"]
-    offer_price = item_price_json[item]["offer_price"]
-    if offer_amount is not None:
-        number_of_offers = int(amount) // int(offer_amount)
-        remained_items = int(amount) % int(offer_amount)
-        total_item_price = ((number_of_offers * offer_price) +
-                            (remained_items * price))
-    else:
-        total_item_price = int(price) * int(amount)
-    return int(total_item_price)
+    # price = item_price_json[item]["price"]
+    # required_item = item_price_json[item]["offer_amount"]
+    # required_item_amount = item_price_json[item]["offer_price"]
+    # offer_item =
+    # offer_price =
+    #
+    # if offer_amount is not None:
+    #     number_of_offers = int(amount) // int(offer_amount)
+    #     remained_items = int(amount) % int(offer_amount)
+    #     total_item_price = ((number_of_offers * offer_price) +
+    #                         (remained_items * price))
+    # else:
+    #     total_item_price = int(price) * int(amount)
+    # return int(total_item_price)
 
 
-print(checkout("AAABC"))
+print(checkout("CCDDD"))
+
 
 
 
