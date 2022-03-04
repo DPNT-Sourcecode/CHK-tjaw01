@@ -14,18 +14,17 @@ import json
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    # Dont forget to check for invalid input: return -1
     skus_list = list(skus)
+    valid_items = {"A", "B", "C", "D"}
     skus_elem_count = {}
     for elem in skus_list:
+        if elem not in valid_items:
+            return -1
         skus_elem_count[elem] = skus_list.count(elem)
     total_cost_list = []
     for item, amount in skus_elem_count.items():
         total_cost_list.append(calculate_item_price(item, amount))
-    print(sum(total_cost_list))
-    # add total of SKUs
-    # return SKUs total cost
-    return(skus_elem_count)
+    return(int(sum(total_cost_list)))
 
 
 def calculate_item_price(item, amount):
@@ -65,9 +64,5 @@ def calculate_item_price(item, amount):
     return int(total_item_price)
 
 
-print(checkout("AABCA"))
+print(checkout("AAA"))
 #print(calculate_item_price("D", "4"))
-
-
-
-
