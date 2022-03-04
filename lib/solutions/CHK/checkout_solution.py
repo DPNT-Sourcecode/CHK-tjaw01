@@ -131,8 +131,3 @@ def calculate_items_price(basket_items_count):
 
 
 print(checkout("CCDDD"))
-
-
-
-
-
