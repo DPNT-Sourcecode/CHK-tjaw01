@@ -65,5 +65,6 @@ def calculate_item_price(item, amount):
 
 
 # print(checkout("AABCA"))
-print(calculate_item_price("A", "4"))
+print(calculate_item_price("B", "2"))
+
 

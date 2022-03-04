@@ -14,7 +14,9 @@ class TestCheckout(unittest.TestCase):
         self.assertAlmostEqual(calculate_item_price("D", 4), 60)
 
 
-unittest.main(argv=[''], verbosity=2, exit=False)
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
+
 
 
 
