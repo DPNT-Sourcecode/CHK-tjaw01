@@ -6,5 +6,3 @@ def hello(friend_name):
     return "hello world!"
 
 
-hello("Joe")
-
