@@ -51,11 +51,18 @@ def calculate_price(item, amount):
         },
     }
     item_price_json = json.loads(json.dumps(item_price))
-    return item_price_json[item]
+    price = item_price_json[item]["price"]
+    offer_amount = item_price_json[item]["offer_amount"]
+    offer_price = item_price_json[item]["offer_price"]
+    if offer_amount is not None:
+        number_of_offers = amount % offer_amount
+        remained_items = amount / offer_amount
+    print(number_of_offers, remained_items)
 
 
 # print(checkout("AABCA"))
-print(calculate_price("A", "4"))
+print(calculate_price("A", "4")) # should = 180
+
 
 
 
