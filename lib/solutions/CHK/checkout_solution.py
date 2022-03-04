@@ -20,7 +20,8 @@ def checkout(skus):
     for elem in skus_list:
         skus_elem_count[elem] = skus_list.count(elem)
     # check items and amount for special offer for each elem
-#    for item, amount in skus_elem_count.items():
+    for item, amount in skus_elem_count.items():
+        print(calculate_item_price(item, amount))
 
     # add total of SKUs
     # return SKUs total cost
@@ -60,11 +61,12 @@ def calculate_item_price(item, amount):
         total_item_price = ((number_of_offers * offer_price) +
                             (remained_items * price))
     else:
-        total_item_price = price * amount
+        total_item_price = int(price) * int(amount)
     return total_item_price
 
 
-# print(checkout("AABCA"))
-print(calculate_item_price("B", "2"))
+print(checkout("AABCA"))
+#print(calculate_item_price("D", "4"))
+
 
 
