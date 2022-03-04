@@ -47,13 +47,11 @@ items = {
         "price": 50,
         "offers": [
             {
-                "offer_id": 1,
                 "required_item_amount": 3,
                 "offer_item": "A",
                 "offer_price": 130
             },
             {
-                "offer_id": 2,
                 "required_item_amount": 5,
                 "offer_item": "A",
                 "offer_price": 200
@@ -64,7 +62,6 @@ items = {
         "price": 30,
         "offers": [
             {
-                "offer_id": 3,
                 "required_item_amount": 2,
                 "offer_item": "B",
                 "offer_price": 45
@@ -83,7 +80,6 @@ items = {
         "price": 40,
         "offers": [
             {
-                "offer_id": 4,
                 "required_item_amount": 2,
                 "offer_item": "B",
                 "offer_price": 0
@@ -108,25 +104,8 @@ def calculate_items_price(basket_items_count):
     item_costs = {}
     for item, amount in basket_items_count.items():
         price = items[item]["price"]
-        offers = items[item]["offers"]
-        if offers is not None:
-            # handle multiple offers on one item
-            # handle single offers on one item
-            best_offer = {}
-            for offer in offers:
-                required_item_amount = offer["required_item_amount"]
-                offer_price = offer["offer_price"]
-
-            # handle free items
-
-
-            # number_of_offers = int(amount) // int(required_item_amount)
-            # remaining_items = int(amount) % int(required_item_amount)
-            # total_item_price = ((number_of_offers * offer_price) +
-            #                     )
-        else:
-            item_costs[item] = (int(items[item]["price"]) *
-                                int(amount))
+        item_costs[item] = (int(price) *
+                            int(amount))
     return(item_costs)
 
         # calcute the price of each key value
@@ -149,6 +128,4 @@ def calculate_items_price(basket_items_count):
     # return int(total_item_price)
 
 
-print(checkout("CCDDD"))
-
-
+print(checkout("CCDDDAABC"))
