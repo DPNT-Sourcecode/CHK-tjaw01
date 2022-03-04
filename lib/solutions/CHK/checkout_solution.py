@@ -107,7 +107,7 @@ def checkout(skus):
 
 
 def calculate_item_price(item, amount):
-    item_price_json = json.loads(json.dumps(item_price))
+    items = json.loads(json.dumps(item_price))
     price = item_price_json[item]["price"]
     offer_amount = item_price_json[item]["offer_amount"]
     offer_price = item_price_json[item]["offer_price"]
@@ -122,5 +122,6 @@ def calculate_item_price(item, amount):
 
 
 print(checkout("AAABC"))
+
 
 
