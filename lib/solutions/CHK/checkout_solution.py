@@ -118,12 +118,11 @@ def calculate_items_price(basket_items_count):
 
 
 def handle_for_value_offers(item, amount):
-    offers = items[item]["offers"]
+    offers = items[item]["value_offers"]
     offer_prices = []
     total = 0
     if offers:
         for offer in offers:
-            offer_item = offer["offer_item"]
             price = items[item]["price"]
             required_item_amount = offer["required_item_amount"]
             offer_price = offer["offer_price"]
@@ -141,7 +140,7 @@ def handle_for_value_offers(item, amount):
 
 def handle_for_free_offers(basket_items_count):
     for item, amount in basket_items_count.items():
-        offers = items[item]["offers"]
+        offers = items[item]["free_offers"]
         if offers:
             for offer in offers:
                 offer_price = offer["offer_price"]
@@ -154,7 +153,8 @@ def handle_for_free_offers(basket_items_count):
     return basket_items_count
 
 
-print(checkout("CCABE"))
+print(checkout("AAABEE"))
+
 
 
 
